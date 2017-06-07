@@ -11,7 +11,6 @@ var sidebarContent = <MenuItem>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</MenuItem>;
 
 export const PageLayout = ({ children }) => (
 
-
   <div>
     <Sidebar sidebar={sidebarContent}
       docked={true}>
