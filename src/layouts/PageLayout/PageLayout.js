@@ -1,36 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react';
 import { IndexLink, Link } from 'react-router'
 import PropTypes from 'prop-types'
 import './PageLayout.scss'
-import Sidebar from 'react-sidebar';
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import { withStyles, createStyleSheet } from 'material-ui/styles';
+import ScrollableTabsButtonAuto from './ScrollableTabsButtonAuto'
 
-var sidebarContent = <MenuItem>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</MenuItem>;
+const styleSheet = createStyleSheet('PageLayout', {
+  root: {
+    width: '100%',
+  },
+});
 
-export const PageLayout = ({ children }) => (
+class PageLayout extends Component {
+  render() {
+    return (
+      <div className={this.props.classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography type="title" color="inherit">Title</Typography>
+          </Toolbar>
+        </AppBar>
+        <ScrollableTabsButtonAuto />
 
-  <div>
-    <Sidebar sidebar={sidebarContent}
-      docked={true}>
-      <AppBar
-        title="Title"
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-      />
-
-      <h1>React Redux Starter Kit</h1>
-      <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
-      {' · '}
-      <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
-      <div className='page-layout__viewport'>
-        {children}
+        <h1>React Redux Starter Kit</h1>
+        <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
+        {' · '}
+        <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
+        <div className='page-layout__viewport'>
+          {this.props.children}
+        </div>
       </div>
-    </Sidebar>
-  </div>
-)
+    );
+  }
+}
+
 PageLayout.propTypes = {
   children: PropTypes.node,
 }
 
-export default PageLayout
+export default withStyles(styleSheet)(PageLayout);
