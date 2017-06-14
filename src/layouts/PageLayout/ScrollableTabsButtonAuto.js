@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import { IndexLink, Link } from 'react-router'
 
 const TabContainer = props =>
   <div style={{ padding: 20 }}>
@@ -39,7 +40,7 @@ class ScrollableTabsButtonAuto extends Component {
     const classes = this.props.classes;
 
     return (
-      <Paper className={classes.root}>
+      <div>
         <div className={classes.appBar}>
           <Tabs
             index={this.state.index}
@@ -47,8 +48,8 @@ class ScrollableTabsButtonAuto extends Component {
             scrollable
             scrollButtons="auto"
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
+            <Tab label="Item One" component={Link} to="/" />
+            <Tab label="Item Two"  component={Link} to="/counter"/>
             <Tab label="Item Three" />
             <Tab label="Item Four" />
             <Tab label="Item Five" />
@@ -56,14 +57,14 @@ class ScrollableTabsButtonAuto extends Component {
             <Tab label="Item Seven" />
           </Tabs>
         </div>
-        {this.state.index === 0 && <TabContainer>{'Item One'}</TabContainer>}
-        {this.state.index === 1 && <TabContainer>{'Item Two'}</TabContainer>}
+        {this.state.index === 0 && <TabContainer>{this.props.children}</TabContainer>}
+        {this.state.index === 1 && <TabContainer>{this.props.children}</TabContainer>}
         {this.state.index === 2 && <TabContainer>{'Item Three'}</TabContainer>}
         {this.state.index === 3 && <TabContainer>{'Item Four'}</TabContainer>}
         {this.state.index === 4 && <TabContainer>{'Item Five'}</TabContainer>}
         {this.state.index === 5 && <TabContainer>{'Item Six'}</TabContainer>}
         {this.state.index === 6 && <TabContainer>{'Item Seven'}</TabContainer>}
-      </Paper>
+      </div>
     );
   }
 }

@@ -23,15 +23,7 @@ class PageLayout extends Component {
             <Typography type="title" color="inherit">Title</Typography>
           </Toolbar>
         </AppBar>
-        <ScrollableTabsButtonAuto />
-
-        <h1>React Redux Starter Kit</h1>
-        <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
-        {' · '}
-        <Link to='/counter' activeClassName='page-layout__nav-item--active'>Counter</Link>
-        <div className='page-layout__viewport'>
-          {this.props.children}
-        </div>
+        <ScrollableTabsButtonAuto children={this.props.children}/>
       </div>
     );
   }
