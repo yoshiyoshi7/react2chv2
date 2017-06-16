@@ -4,11 +4,19 @@ import { connect } from 'react-redux'
 //vimport { fetchPostsIfNeeded } from '../actions'
 // import Posts from '../components/Posts'
 import { selectedReddit } from '../modules/it'
+import Button from 'material-ui/Button';
 
 class It extends Component {
 
   componentDidMount() {
-    selectedReddit()
+    // selectedReddit()
+  }
+
+  handleChange1 = () => {
+    selectedReddit("its")
+  }
+  handleChange2 = () => {
+    selectedReddit("socialgames")
   }
 
   render() {
@@ -18,7 +26,8 @@ class It extends Component {
       <div>
 
         <div>{it}
-
+          <Button raised onTouchTap={this.handleChange1}>Default</Button>
+          <Button raised onTouchTap={this.handleChange2}>Default2</Button>
         </div>
 
       </div>

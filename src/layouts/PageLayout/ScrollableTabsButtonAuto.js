@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
+import SwipeableViews from 'react-swipeable-views';
 
 const TabContainer = props =>
   <div style={{ padding: 20 }}>
@@ -34,7 +35,21 @@ class ScrollableTabsButtonAuto extends Component {
 
   handleChange = (event, index) => {
     this.setState({ index });
-     switch (index) {
+    switch (index) {
+      case 0:
+        return browserHistory.push('/');
+      case 1:
+        return browserHistory.push('/counter');
+      case 2:
+        return browserHistory.push('/it');
+      default:
+        return browserHistory.push('/');
+    }
+  };
+
+  handleChangeIndex = index => {
+    this.setState({ index });
+    switch (index) {
       case 0:
         return browserHistory.push('/');
       case 1:
@@ -58,8 +73,8 @@ class ScrollableTabsButtonAuto extends Component {
             scrollable
             scrollButtons="auto"
           >
-            <Tab label="Item One"/>
-            <Tab label="Item Two"/>
+            <Tab label="Item One" />
+            <Tab label="Item Two" />
             <Tab label="Item Three" />
             <Tab label="Item Four" />
             <Tab label="Item Five" />
@@ -67,13 +82,15 @@ class ScrollableTabsButtonAuto extends Component {
             <Tab label="Item Seven" />
           </Tabs>
         </div>
-        {this.state.index === 0 && <TabContainer>{this.props.children}</TabContainer>}
-        {this.state.index === 1 && <TabContainer>{this.props.children}</TabContainer>}
-        {this.state.index === 2 && <TabContainer>{this.props.children}</TabContainer>}
-        {this.state.index === 3 && <TabContainer>{'Item Four'}</TabContainer>}
-        {this.state.index === 4 && <TabContainer>{'Item Five'}</TabContainer>}
-        {this.state.index === 5 && <TabContainer>{'Item Six'}</TabContainer>}
-        {this.state.index === 6 && <TabContainer>{'Item Seven'}</TabContainer>}
+        <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
+          <TabContainer>{this.props.children}</TabContainer>
+          <TabContainer>{this.props.children}</TabContainer>
+          <TabContainer>{this.props.children}</TabContainer>
+          <TabContainer>{'Item Four'}</TabContainer>
+          <TabContainer>{'Item Five'}</TabContainer>
+          <TabContainer>{'Item Six'}</TabContainer>
+          <TabContainer>{'Item Seven'}</TabContainer>
+        </SwipeableViews>
       </div>
     );
   }

@@ -22,21 +22,18 @@ export const receivePosts = (json) => ({
   posts: json.map(item => item)
 })
 
-const fetchPosts = () => dispatch => {
-  dispatch(requestPosts(getState().it), {mode: 'cors'})
-  return fetch(`http://13.112.133.111/items_${getState().it}`)
+const fetchPosts = category => dispatch => {
+  dispatch(requestPosts(getState().it), { mode: 'cors' })
+  return fetch(`http://13.112.133.111/items_${category}`)
     .then(response => response.json())
     .then(json => dispatch(receivePosts(json)))
 }
 
 
-export const selectedReddit = () => {
-  
-  return (dispatch, getState) => {
-    return dispatch(fetchPosts())
-  }
+export const selectedReddit = category => 
+(dispatch, getState) => {
+  return dispatch(fetchPosts(category))
 }
-
 
 export const actions = {
   selectedReddit,
