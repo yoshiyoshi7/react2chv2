@@ -19,20 +19,21 @@ export const requestPosts = () => ({
 
 export const receivePosts = (json) => ({
   type: RECEIVE_POSTS,
-  posts: json.map(item => item)
+  items: json.map(item => item)
 })
 
 const fetchPosts = category => dispatch => {
-  dispatch(requestPosts(getState().it), { mode: 'cors' })
+  dispatch(requestPosts(category), { mode: 'cors' })
   return fetch(`http://13.112.133.111/items_${category}`)
     .then(response => response.json())
     .then(json => dispatch(receivePosts(json)))
 }
 
 
-export const selectedReddit = category => 
-(dispatch, getState) => {
-  return dispatch(fetchPosts(category))
+export const selectedReddit = category => {
+  return (dispatch, getState) => {
+    return dispatch(fetchPosts(category))
+  }
 }
 
 export const actions = {
