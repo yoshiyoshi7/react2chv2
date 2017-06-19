@@ -3,7 +3,6 @@
 // ------------------------------------
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_REDDIT = 'SELECT_REDDIT'
 
 // ------------------------------------
 // Actions
@@ -19,7 +18,7 @@ export const requestPosts = () => ({
 
 export const receivePosts = (json) => ({
   type: RECEIVE_POSTS,
-  items: json.map(item => item)
+  posts: json.map(item => item)
 })
 
 const fetchPosts = category => dispatch => {
@@ -44,14 +43,30 @@ export const actions = {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [SELECT_REDDIT]: (state, action) => {
+
+  [REQUEST_POSTS]: (state, action) => {
     switch (action.type) {
-      case SELECT_REDDIT:
-        return action.payload
+      case REQUEST_POSTS:
+        return {
+          ...state
+        }
       default:
         return state
     }
-  }
+  },
+
+  [RECEIVE_POSTS]: (state, action) => {
+    switch (action.type) {
+      case RECEIVE_POSTS:
+        return {
+          ...state,
+          items: action.posts
+        }
+      default:
+        return state
+    }
+  },
+
 }
 
 // ------------------------------------

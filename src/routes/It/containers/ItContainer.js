@@ -16,10 +16,18 @@ const mapDispatchToProps = {
   selectedReddit
 }
 
-const mapStateToProps = (state) => ({
-  it:state.it,
-  items : state.items
-})
+const mapStateToProps = (state) => {
+  if (state.it.items == null) {
+    return {
+      items: [],
+    }
+  }
+
+  return {
+    items: state.it.items,
+  }
+
+}
 
 /*  Note: mapStateToProps is where you should use `reselect` to create selectors, ie:
 

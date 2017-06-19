@@ -8,6 +8,8 @@ import Typography from 'material-ui/Typography';
 import { withStyles, createStyleSheet } from 'material-ui/styles';
 import ScrollableTabsButtonAuto from './ScrollableTabsButtonAuto'
 
+
+
 const styleSheet = createStyleSheet('PageLayout', {
   root: {
     width: '100%',
@@ -20,10 +22,10 @@ class PageLayout extends Component {
       <div className={this.props.classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <Typography type="title" color="inherit">Title</Typography>
+            <Typography type="title" color="inherit">Matome</Typography>
           </Toolbar>
         </AppBar>
-        <ScrollableTabsButtonAuto children={this.props.children}/>
+        <ScrollableTabsButtonAuto children={this.props.children} />
       </div>
     );
   }
