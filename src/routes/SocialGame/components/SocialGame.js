@@ -5,19 +5,19 @@ import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
 import Paper from 'material-ui/Paper'
 import Avatar from 'material-ui/Avatar'
 import { withStyles, createStyleSheet } from 'material-ui/styles'
-import { CircularProgress } from 'material-ui/Progress';
+import { CircularProgress } from 'material-ui/Progress'
 
-const styleSheet = createStyleSheet('It', {
+const styleSheet = createStyleSheet('SocialGame', {
   loading: {
     display: 'block',
     margin: '0 auto',
   },
 });
 
-class It extends Component {
+class SocialGame extends Component {
 
   componentDidMount() {
-    { this.props.selectedReddit("its") }
+    { this.props.selectedReddit("socialgames") }
   }
 
   render() {
@@ -49,8 +49,8 @@ class It extends Component {
   }
 }
 
-It.propTypes = {
+SocialGame.propTypes = {
   // selectedReddit: PropTypes.string.isRequired,
 }
 
-export default withStyles(styleSheet)(It)
+export default withStyles(styleSheet)(SocialGame)

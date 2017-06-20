@@ -18,8 +18,9 @@ const styleSheet = createStyleSheet('PageLayout', {
 
 class PageLayout extends Component {
   render() {
+    const classes = this.props.classes;
     return (
-      <div className={this.props.classes.root}>
+      <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
             <Typography type="title" color="inherit">Matome</Typography>

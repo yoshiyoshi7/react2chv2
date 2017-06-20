@@ -39,9 +39,15 @@ class ScrollableTabsButtonAuto extends Component {
       case 0:
         return browserHistory.push('/');
       case 1:
-        return browserHistory.push('/counter');
+        return browserHistory.push('/socialgame');
       case 2:
-        return browserHistory.push('/it');
+        return browserHistory.push('/news');
+      case 3:
+        return browserHistory.push('/animegame');
+      // case 0:
+      //   return browserHistory.push('/');
+      // case 1:
+      //   return browserHistory.push('/counter');
       default:
         return browserHistory.push('/');
     }
@@ -53,9 +59,15 @@ class ScrollableTabsButtonAuto extends Component {
       case 0:
         return browserHistory.push('/');
       case 1:
-        return browserHistory.push('/counter');
+        return browserHistory.push('/socialgame');
       case 2:
-        return browserHistory.push('/it');
+        return browserHistory.push('/news');
+      case 3:
+        return browserHistory.push('/animegame');
+      // case 0:
+      //   return browserHistory.push('/');
+      // case 1:
+      //   return browserHistory.push('/counter');
       default:
         return browserHistory.push('/');
     }
@@ -73,23 +85,23 @@ class ScrollableTabsButtonAuto extends Component {
             scrollable
             scrollButtons="auto"
           >
-            <Tab label="Item One" />
-            <Tab label="Item Two" />
-            <Tab label="Item Three" />
-            <Tab label="Item Four" />
-            <Tab label="Item Five" />
-            <Tab label="Item Six" />
-            <Tab label="Item Seven" />
+            <Tab label="IT・ガジェット" />
+            <Tab label="ソーシャルゲーム" />
+            <Tab label="ニュース" />
+            <Tab label="アニメ・ゲーム" />
+            {/*<Tab label="Home" />
+            <Tab label="Counter" />
+            <Tab label="Item Seven" />*/}
           </Tabs>
         </div>
         <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
           <TabContainer>{this.props.children}</TabContainer>
           <TabContainer>{this.props.children}</TabContainer>
           <TabContainer>{this.props.children}</TabContainer>
-          <TabContainer>{'Item Four'}</TabContainer>
-          <TabContainer>{'Item Five'}</TabContainer>
-          <TabContainer>{'Item Six'}</TabContainer>
-          <TabContainer>{'Item Seven'}</TabContainer>
+          <TabContainer>{this.props.children}</TabContainer>
+          {/*<TabContainer>{this.props.children}</TabContainer>
+          <TabContainer>{this.props.children}</TabContainer>
+          <TabContainer>{'Item Seven'}</TabContainer>*/}
         </SwipeableViews>
       </div>
     );

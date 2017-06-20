@@ -1,8 +1,8 @@
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const REQUEST_POSTS = 'REQUEST_POSTS_SOCIAL_GAME'
+export const RECEIVE_POSTS = 'RECEIVE_POSTS_SOCIAL_GAME'
 
 // ------------------------------------
 // Actions
@@ -13,12 +13,12 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
     creating async actions, especially when combined with redux-thunk! */
 
 export const requestPosts = () => ({
-  type: REQUEST_POSTS,
+  type: REQUEST_POSTS
 })
 
 export const receivePosts = (json) => ({
   type: RECEIVE_POSTS,
-  posts: json.map(item => item),
+  posts_socialgame: json.map(item => item)
 })
 
 const fetchPosts = category => dispatch => {
@@ -29,7 +29,7 @@ const fetchPosts = category => dispatch => {
 }
 
 const shouldFetchPosts = (state) => {
-  if (state.it.items == null) {
+  if (state.socialgame.items == null) {
     return true
   } else {
     return false
@@ -57,7 +57,7 @@ const ACTION_HANDLERS = {
     switch (action.type) {
       case REQUEST_POSTS:
         return {
-          ...state,
+          ...state
         }
       default:
         return state
@@ -69,7 +69,7 @@ const ACTION_HANDLERS = {
       case RECEIVE_POSTS:
         return {
           ...state,
-          items: action.posts,
+          items: action.posts_socialgame,
         }
       default:
         return state
