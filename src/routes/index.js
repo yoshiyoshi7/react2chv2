@@ -5,17 +5,28 @@ import CounterRoute from './Counter'
 import ItRoute from './It'
 import SocialGameRoute from './SocialGame'
 import NewsRoute from './News'
+import SportsRoute from './Sports'
 import AnimeGameRoute from './AnimeGame'
+import LivesRoute from './Lives'
+import EntertainersRoute from './Entertainers'
+import DevelopmentRoute from './Development'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
 export const createRoutes = (store) => ({
-  path        : '/',
-  component   : CoreLayout,
-  indexRoute  : ItRoute(store),
-  childRoutes : [
-    CounterRoute(store),ItRoute(store),SocialGameRoute(store),NewsRoute(store),AnimeGameRoute(store)
+  path: '/',
+  component: CoreLayout,
+  indexRoute: ItRoute(store),
+  childRoutes: [
+    // CounterRoute(store),
+    SocialGameRoute(store),
+    NewsRoute(store),
+    SportsRoute(store),
+    AnimeGameRoute(store),
+    LivesRoute(store),
+    EntertainersRoute(store),
+    DevelopmentRoute(store),
   ]
 })
 

@@ -8,6 +8,7 @@ import Paper from 'material-ui/Paper';
 import Tabs, { Tab } from 'material-ui/Tabs';
 import { browserHistory } from 'react-router';
 import SwipeableViews from 'react-swipeable-views';
+import ScrollToTop from './ScrollToTop'
 
 const TabContainer = props =>
   <div style={{ padding: 20 }}>
@@ -43,7 +44,14 @@ class ScrollableTabsButtonAuto extends Component {
       case 2:
         return browserHistory.push('/news');
       case 3:
+        return browserHistory.push('/sports');
+      case 4:
         return browserHistory.push('/animegame');
+      case 5:
+        return browserHistory.push('/lives');
+      case 6:
+        return browserHistory.push('/entertainers');
+
       // case 0:
       //   return browserHistory.push('/');
       // case 1:
@@ -63,7 +71,13 @@ class ScrollableTabsButtonAuto extends Component {
       case 2:
         return browserHistory.push('/news');
       case 3:
+        return browserHistory.push('/sports');
+      case 4:
         return browserHistory.push('/animegame');
+      case 5:
+        return browserHistory.push('/lives');
+      case 6:
+        return browserHistory.push('/entertainers');
       // case 0:
       //   return browserHistory.push('/');
       // case 1:
@@ -88,21 +102,29 @@ class ScrollableTabsButtonAuto extends Component {
             <Tab label="IT・ガジェット" />
             <Tab label="ソーシャルゲーム" />
             <Tab label="ニュース" />
+            <Tab label="スポーツ" />
             <Tab label="アニメ・ゲーム" />
+            <Tab label="生活" />
+            <Tab label="芸能" />
             {/*<Tab label="Home" />
             <Tab label="Counter" />
             <Tab label="Item Seven" />*/}
           </Tabs>
         </div>
-        <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
-          <TabContainer>{this.props.children}</TabContainer>
-          <TabContainer>{this.props.children}</TabContainer>
-          <TabContainer>{this.props.children}</TabContainer>
-          <TabContainer>{this.props.children}</TabContainer>
-          {/*<TabContainer>{this.props.children}</TabContainer>
+        <ScrollToTop>
+          <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            <TabContainer>{this.props.children}</TabContainer>
+            {/*<TabContainer>{this.props.children}</TabContainer>
           <TabContainer>{this.props.children}</TabContainer>
           <TabContainer>{'Item Seven'}</TabContainer>*/}
-        </SwipeableViews>
+          </SwipeableViews>
+        </ScrollToTop>
       </div>
     );
   }

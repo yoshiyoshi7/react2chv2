@@ -34,7 +34,7 @@ class AnimeGame extends Component {
               <List>
                 {this.props.items.map((item, index) =>
                   <a href={item.url}>
-                    <ListItem key={item.id} button>
+                    <ListItem key={item.id}>
                       {/*<Avatar alt="Remy Sharp" src={item.img} />*/}
                       <ListItemText primary={item.title} secondary={item.site + " " + new Date(item.updated_at).toLocaleString()} />
                     </ListItem>

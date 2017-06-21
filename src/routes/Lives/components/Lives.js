@@ -7,17 +7,17 @@ import Avatar from 'material-ui/Avatar'
 import { withStyles, createStyleSheet } from 'material-ui/styles'
 import { CircularProgress } from 'material-ui/Progress'
 
-const styleSheet = createStyleSheet('SocialGame', {
+const styleSheet = createStyleSheet('Lives', {
   loading: {
     display: 'block',
     margin: '0 auto',
   },
 });
 
-class SocialGame extends Component {
+class Lives extends Component {
 
   componentDidMount() {
-    { this.props.selectedReddit("socialgames") }
+    { this.props.selectedReddit("lives") }
   }
 
   render() {
@@ -49,8 +49,8 @@ class SocialGame extends Component {
   }
 }
 
-SocialGame.propTypes = {
+Lives.propTypes = {
   // selectedReddit: PropTypes.string.isRequired,
 }
 
-export default withStyles(styleSheet)(SocialGame)
+export default withStyles(styleSheet)(Lives)
