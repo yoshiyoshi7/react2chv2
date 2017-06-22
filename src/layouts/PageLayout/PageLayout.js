@@ -57,7 +57,7 @@ class PageLayout extends Component {
               open={this.state.open}
               onRequestClose={this.handleRequestClose}
             >
-              <MenuItem onClick={this.handleChange}>更新履歴</MenuItem>
+              <MenuItem onClick={this.handleChange}>更新予定一覧</MenuItem>
             </Menu>
 
           </Toolbar>

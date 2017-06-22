@@ -23,6 +23,9 @@ class AnimeGame extends Component {
   render() {
     const classes = this.props.classes;
     const isEmpty = this.props.items.length === 0;
+    const mapItem = [];
+    for (let i = 0; i < 10; i++)
+      mapItem.push(this.props.items[i]);
 
     return (
 
@@ -32,13 +35,12 @@ class AnimeGame extends Component {
           : <div>
             <Paper elevation={24}>
               <List>
-                {this.props.items.map((item, index) =>
-                  <a href={item.url}>
-                    <ListItem key={item.id}>
-                      {/*<Avatar alt="Remy Sharp" src={item.img} />*/}
+                {mapItem.map((item, index) =>
+                  <ListItem key={item.id}>
+                    <a href={item.url}>
                       <ListItemText primary={item.title} secondary={item.site + " " + new Date(item.updated_at).toLocaleString()} />
-                    </ListItem>
-                  </a>
+                    </a>
+                  </ListItem>
                 )}
               </List>
             </Paper>

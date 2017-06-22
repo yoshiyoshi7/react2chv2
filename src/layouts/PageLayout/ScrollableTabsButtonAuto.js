@@ -51,7 +51,6 @@ class ScrollableTabsButtonAuto extends Component {
         return browserHistory.push('/lives');
       case 6:
         return browserHistory.push('/entertainers');
-
       // case 0:
       //   return browserHistory.push('/');
       // case 1:
