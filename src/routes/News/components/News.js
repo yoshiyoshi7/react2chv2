@@ -1,16 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
-import Paper from 'material-ui/Paper'
-import Avatar from 'material-ui/Avatar'
 import { withStyles, createStyleSheet } from 'material-ui/styles'
 import { CircularProgress } from 'material-ui/Progress'
+import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card'
+import Typography from 'material-ui/Typography'
 
 const styleSheet = createStyleSheet('News', {
   loading: {
     display: 'block',
     margin: '0 auto',
+  },
+  card: {
+    marginBottom: 10,
   },
 });
 
@@ -33,17 +35,16 @@ class News extends Component {
         {isEmpty
           ? <CircularProgress className={classes.loading} />
           : <div>
-            <Paper elevation={24}>
-              <List>
-                {mapItem.map((item, index) =>
-                  <ListItem key={item.id}>
-                    <a href={item.url}>
-                      <ListItemText primary={item.title} secondary={item.site + " " + new Date(item.updated_at).toLocaleString()} />
-                    </a>
-                  </ListItem>
-                )}
-              </List>
-            </Paper>
+            {mapItem.map((item, index) =>
+              <Card className={classes.card} key={item.id}>
+                <a href={item.url}>
+                  <CardContent>
+                    <Typography type="body2" gutterBottom>{item.title}</Typography>
+                    <Typography type="caption">{item.site + " " + new Date(item.updated_at).toLocaleString()}</Typography>
+                  </CardContent>
+                </a>
+              </Card>
+            )}
           </div>
         }
       </div>

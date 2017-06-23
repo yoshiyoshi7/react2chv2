@@ -1,17 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import { withStyles, createStyleSheet } from 'material-ui/styles';
-import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import Avatar from 'material-ui/Avatar';
-import DeveloperModeBoardIcon from 'material-ui-icons/DeveloperMode';
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import { deepOrange, green } from 'material-ui/styles/colors';
+import PropTypes from 'prop-types'
+import { withStyles, createStyleSheet } from 'material-ui/styles'
+import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card'
+import Typography from 'material-ui/Typography'
+import Avatar from 'material-ui/Avatar'
+import DeveloperModeBoardIcon from 'material-ui-icons/DeveloperMode'
+import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
+import Divider from 'material-ui/Divider'
+import { deepOrange, green } from 'material-ui/styles/colors'
 
 const styleSheet = createStyleSheet('Development', theme => ({
   card: {
-    margin: 10,
+    marginBottom: 10,
   },
   allAvatar: {
     backgroundColor: theme.palette.primary[500],
@@ -21,7 +21,7 @@ const styleSheet = createStyleSheet('Development', theme => ({
     backgroundColor: deepOrange[500],
     color: '#fff',
   },
-   severAvatar: {
+  severAvatar: {
     backgroundColor: green[500],
     color: '#fff',
   },
@@ -31,7 +31,7 @@ const styleSheet = createStyleSheet('Development', theme => ({
 
 
 function Development(props) {
-  const classes = props.classes;
+  const classes = props.classes
 
   return (
     <div>
@@ -83,7 +83,7 @@ function Development(props) {
         />
         <CardContent>
           <Typography>items数、25個で9.5KB  目標は4KB以下なので、画像urlを削り、表示数を減らせば(20個?もっとか?)いけるかも?</Typography>
-          <Typography>⇒表示数を10件に絞った結果、swipeの速度が改善したので、無限loadingを実施して表示数を増やすようにする</Typography>
+          <Typography>⇒表示数を10件に絞った結果、swipeの速度が改善したので、無限loading(react-virtualized)を実施して表示数を増やすようにする</Typography>
         </CardContent>
       </Card>
       <Card className={classes.card}>
