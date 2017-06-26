@@ -29,23 +29,21 @@ class It extends Component {
     for (let i = 0; i < 10; i++)
       mapItem.push(this.props.items[i])
 
-    const loader = <div className="loader">Loading ...</div>;
-
     return (
       <div>
         {isEmpty
           ? <CircularProgress className={classes.loading} />
           : <div>
-              {mapItem.map((item, index) =>
-                <Card className={classes.card} key={item.id}>
-                  <a href={item.url}>
-                    <CardContent>
-                      <Typography type="body2" gutterBottom>{item.title}</Typography>
-                      <Typography type="caption">{item.site + " " + new Date(item.updated_at).toLocaleString()}</Typography>
-                    </CardContent>
-                  </a>
-                </Card>
-              )}
+            {mapItem.map((item, index) =>
+              <Card className={classes.card} key={item.id}>
+                <a href={item.url}>
+                  <CardContent>
+                    <Typography type="body2" gutterBottom>{item.title}</Typography>
+                    <Typography type="caption">{item.site + " " + new Date(item.updated_at).toLocaleString()}</Typography>
+                  </CardContent>
+                </a>
+              </Card>
+            )}
           </div>
         }
       </div>
