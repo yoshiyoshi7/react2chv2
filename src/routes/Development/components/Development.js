@@ -35,6 +35,12 @@ function Development(props) {
 
   return (
     <div>
+      {/*<Typography type="display1" gutterBottom>
+        更新済
+      </Typography>*/}
+      <Typography type="display1" gutterBottom>
+        更新予定
+      </Typography>
       <Card className={classes.card}>
         <CardHeader
           avatar={<Avatar className={classes.allAvatar}>A</Avatar>}

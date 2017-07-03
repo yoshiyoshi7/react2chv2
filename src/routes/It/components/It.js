@@ -5,6 +5,8 @@ import { withStyles, createStyleSheet } from 'material-ui/styles'
 import { CircularProgress } from 'material-ui/Progress'
 import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
+// import InfiniteScroll from 'react-infinite-scroller' これでできそうだがserver側で10件返すとか細かく出来るように
+// してthis.props.itemsに入れないと無理っぽいのでserverlessにしてからやる
 
 const styleSheet = createStyleSheet('It', {
   loading: {
@@ -34,16 +36,18 @@ class It extends Component {
         {isEmpty
           ? <CircularProgress className={classes.loading} />
           : <div>
-            {mapItem.map((item, index) =>
-              <Card className={classes.card} key={item.id}>
-                <a href={item.url}>
-                  <CardContent>
-                    <Typography type="body2" gutterBottom>{item.title}</Typography>
-                    <Typography type="caption">{item.site + " " + new Date(item.updated_at).toLocaleString()}</Typography>
-                  </CardContent>
-                </a>
-              </Card>
-            )}
+
+              {mapItem.map((item, index) =>
+                <Card className={classes.card} key={item.id}>
+                  <a href={item.url}>
+                    <CardContent>
+                      <Typography type="body2" gutterBottom>{item.title}</Typography>
+                      <Typography type="caption">{item.site + " " + new Date(item.updated_at).toLocaleString()}</Typography>
+                    </CardContent>
+                  </a>
+                </Card>
+              )}
+
           </div>
         }
       </div>
