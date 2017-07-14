@@ -7,7 +7,8 @@ import Avatar from 'material-ui/Avatar'
 import DeveloperModeBoardIcon from 'material-ui-icons/DeveloperMode'
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
 import Divider from 'material-ui/Divider'
-import { deepOrange, green } from 'material-ui/styles/colors'
+import green from 'material-ui/colors/green'
+import deepOrange from 'material-ui/colors/deepOrange'
 
 const styleSheet = createStyleSheet('Development', theme => ({
   card: {
